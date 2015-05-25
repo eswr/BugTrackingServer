@@ -1,0 +1,38 @@
+<h1>Listing Issues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= sortable "operator", "Operator" %></th>
+      <th><%= sortable "model_no", "Model no" %></th>
+      <th><%= sortable "sr_no", "Sr no" %></th>
+      <th><%= sortable "cr_no", "Crno" %></th>
+      <th><%= sortable "analysis", "Analysis" %></th>
+      <th><%= sortable "url", "Url" %></th>
+      <th><%= sortable "issue_type", "Issue type" %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @issues.each do |issue| %>
+     <% for issue in @issues %>
+      <tr>
+        <td><%= issue.operator %></td>
+        <td><%= issue.model_no %></td>
+        <td><%= issue.sr_no %></td>
+        <td><%= issue.cr_no %></td>
+        <td><%= issue.analysis %></td>
+        <td><%= issue.url %></td>
+        <td><%= issue.issue_type %></td>
+        <td><%= link_to 'Show', issue %></td>
+        <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
+        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Issue', new_issue_path %>

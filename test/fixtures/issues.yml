@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  operator: MyString
+  model_no: MyString
+  sr_no: 1
+  cr_no: 1
+  analysis: MyString
+  url: MyString
+  issue_type_id: 
+
+two:
+  operator: MyString
+  model_no: MyString
+  sr_no: 1
+  cr_no: 1
+  analysis: MyString
+  url: MyString
+  issue_type_id: 

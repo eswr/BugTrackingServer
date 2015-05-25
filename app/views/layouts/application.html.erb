@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nestedtable</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<p id="notice"><%= notice %></p>
+<%= link_to 'All Isssue', issues_path %> |
+<%= link_to 'All Issue Types', issue_types_path %>
+<%= yield %>
+
+</body>
+</html>

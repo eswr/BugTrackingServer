@@ -1,0 +1,73 @@
+<%= form_for(@issue_type) do |f| %>
+  <% if @issue_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@issue_type.errors.count, "error") %> prohibited this issue_type from being saved:</h2>
+
+      <ul>
+      <% @issue_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+<h2>Issues</h2>
+<!--<%#= f.fields_for :issues do |issue| %>
+<div class="Issue_fields">
+    <div class="field"><%#= issue.label :id %>
+      <%#= issue.text_field :id %></div>
+    <div class="field"><%#= issue.label :operator %>
+      <%#= issue.text_field :operator %></div>
+    <div class="field"><%#= issue.label :model_no %>
+      <%#= issue.text_field :model_no %></div>
+    <div class="field"><%#= issue.label :sr_no %>
+      <%#= issue.text_field :sr_no %></div>
+    <div class="field"><%#= issue.label :cr_no %>
+      <%#= issue.text_field :cr_no %></div>
+    <div class="field"><%#= issue.label :analysis %>
+      <%#= issue.text_area :analysis %></div>
+    <div class="field"><%#= issue.label :url %>
+      <%#= issue.text_field :url %></div>
+      <div class="destroy_link">
+      </div>
+  </div>
+<%# end %>23-->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Operator</th>
+        <th>Model no</th>
+        <th>Sr no</th>
+        <th>Cr no</th>
+        <th>Analysis</th>
+        <th>Url</th>
+        <th>Issue type</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= f.fields_for :issues do |issue| %>
+        <tr>
+        <td><%= issue.text_field :operator %></td>
+        <td><%= issue.text_field :model_no %></td>
+        <td><%= issue.text_field :sr_no %></td>
+        <td><%= issue.text_field :cr_no %></td>
+        <td><%= issue.text_area :analysis %></td>
+        <td><%= issue.text_field :url %></td>
+        <td><%= issue.text_field :issue_type %></td>
+        <td><%= issue.check_box :_destroy %><%= issue.label :_destroy, 'remove' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

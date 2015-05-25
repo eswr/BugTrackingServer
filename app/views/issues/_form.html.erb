@@ -1,0 +1,65 @@
+<%= form_for(@issue) do |f| %>
+  <% if @issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+      <ul>
+      <% @issue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :operator %><br>
+    <%= f.text_field :operator %>
+  </div>
+  <div class="field">
+    <%= f.label :model_no %><br>
+    <%= f.text_field :model_no %>
+  </div>
+  <div class="field">
+    <%= f.label :sr_no %><br>
+    <%= f.number_field :sr_no %>
+  </div>
+  <div class="field">
+    <%= f.label :cr_no %><br>
+    <%= f.number_field :cr_no %>
+  </div>
+  <div class="field">
+    <%= f.label :analysis %><br>
+    <%= f.text_area :analysis %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <!--<div class="field">
+    <%#= f.label :issue_type_id %><br>
+    <%#= f.select :issue_type_id, 
+      options_for_select([
+        ['Throughtput Related Issues','1'],
+        ['eMBMS Related Issues','2'],
+        ['Carrier Aggregation Related Issues','3'],
+        ['VoLTE SPS Issues','4'],
+        ['VoLTE ROCH Issues','5'],
+        ['VoLTE SPS TTI Bundling Issues','6'],
+        ['Handover Issues','7'],
+        ['FGI SIB15 Issues','8'],
+        ['FGI ROHC Issues','9'],
+        ['FGI SPS Issues','10'],
+        ['FGI SDCIT Issues','11'],
+        ['Power Related Issues','12'],
+        ['QCI/QoS Bearer Throughtput Issues','13'],
+        ['IMS Registration Related Issues','14']
+       ], params[:issue_type_id]), {}, { :class => 'span3 controls controls-row' } %>
+  </div>-->
+  <div class="field">
+    <%= f.label :issue_type %><br>
+    <%= f.collection_select(:issue_type_id, IssueType.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

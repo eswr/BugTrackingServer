@@ -1,0 +1,16 @@
+<p>
+<strong>Name:</strong>
+ <%= @issue_type.name %>
+</p>
+<h2>Issues</h2>
+<% if @issue_type.issues.any? %>
+<ul>
+ <% @issue_type.issues.each do |issue| %>
+<li><%= link_to issue, issue %></li>
+ <% end %>
+</ul>
+<% else %>
+<p>none available</p>
+<% end %>
+<%= link_to 'Edit', edit_issue_type_path(@issue_type) %> |
+<%= link_to 'Back', issue_types_path %>

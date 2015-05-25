@@ -1,0 +1,37 @@
+<p>
+  <strong>Operator:</strong>
+  <%= @issue.operator %>
+</p>
+
+<p>
+  <strong>Model no:</strong>
+  <%= @issue.model_no %>
+</p>
+
+<p>
+  <strong>Sr no:</strong>
+  <%= @issue.sr_no %>
+</p>
+
+<p>
+  <strong>Cr no:</strong>
+  <%= @issue.cr_no %>
+</p>
+
+<p>
+  <strong>Analysis:</strong>
+  <%= @issue.analysis %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @issue.url %>
+</p>
+
+<p>
+  <strong>Issue type:</strong>
+  <%= @issue.issue_type %>
+</p>
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>
